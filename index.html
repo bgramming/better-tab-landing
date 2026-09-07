@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better Tab — Mission Control for Chrome & Brave Tabs</title>
+  <meta name="description" content="Replace browser clutter with an ultra-fast visual grid, automated RAM hibernation, duplicate tab cleaning, and cross-device stashes. The Mission Control your 50+ tabs deserve.">
+  <meta name="keywords" content="tab manager, chrome extension, brave extension, tab mission control, ram saver, suspend tabs, duplicate tab cleaner">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <a href="#" class="nav-brand">
+      <img src="assets/logo-icon.svg" alt="Better Tab Logo">
+      <span class="nav-brand-title">Better Tab</span>
+      <span class="nav-brand-tag">v3.0.4</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#demo">Live Demo</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="../docs/PRESS_KIT.md">Press Kit</a></li>
+      <li><a href="../docs/BRAND_IDENTITY.md">Brand ID</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#pricing" class="btn btn-secondary" style="font-size: 13px; padding: 8px 16px;">Pricing</a>
+      <a href="https://github.com/bgramming/better-tab-mission-control" target="_blank" class="btn btn-primary">
+        Install Free ⚡
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-pill">
+          <span class="hero-pill-pulse"></span>
+          <span>Version 3.0.4 Live • Chrome & Brave Manifest V3</span>
+        </div>
+        
+        <h1 class="hero-title">
+          The Mission Control Your <br>
+          <span class="hero-gradient-text">50+ Browser Tabs Deserve</span>
+        </h1>
+
+        <p class="hero-sub">
+          Stop hunting through squished, unrecognizable tab strips. Better Tab gives you an instant spatial grid, 1-click RAM hibernation, smart duplicate cleaning, and zero-latency search.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://github.com/bgramming/better-tab-mission-control" target="_blank" class="btn btn-primary btn-lg">
+            <span>Add to Chrome / Brave — It's Free</span>
+            <span style="font-size: 18px;">⚡</span>
+          </a>
+          <a href="#demo" class="btn btn-secondary btn-lg">
+            <span>Try Interactive Demo ↓</span>
+          </a>
+        </div>
+
+        <div class="hero-guarantee">
+          <span>🛡️ 100% Client-Side Private</span>
+          <span>⚡ Zero Telemetry & Zero Ads</span>
+          <span>🌿 Up to 80% RAM Saved</span>
+          <span>⭐ 4.9 / 5 Power User Rating</span>
+        </div>
+
+        <!-- Interactive Demo Container -->
+        <div id="demo" class="demo-showcase">
+          <div class="demo-header">
+            <div class="demo-dots">
+              <span class="demo-dot demo-dot-red"></span>
+              <span class="demo-dot demo-dot-yellow"></span>
+              <span class="demo-dot demo-dot-green"></span>
+            </div>
+
+            <div class="demo-search-bar">
+              <span style="opacity: 0.6;">🔍</span>
+              <input id="demo-search-input" type="text" placeholder="Type here to test instant search (e.g. 'code', 'spotify', 'figma')...">
+            </div>
+
+            <div class="demo-telemetry">
+              <span id="demo-tab-count" class="demo-stat-badge">14 Tabs Active</span>
+              <span id="demo-ram-saved" class="demo-stat-badge" style="color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.1);">4.2 GB RAM Used</span>
+              <button id="demo-clean-dupes-btn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px; border-color: #f59e0b; color: #fbbf24;">
+                🧹 Clean 3 Duplicates
+              </button>
+              <button id="demo-hibernate-btn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px; border-color: #10b981; color: #34d399;">
+                🌿 Hibernate Inactive
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Interactive Cards Grid -->
+          <div class="demo-grid" id="demo-cards-container">
+            <div class="demo-card audible" data-title="YouTube: Next.js 15 Full Tutorial" data-url="youtube.com/watch?v=...">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">📺</span>
+                <span class="demo-card-badge badge-audible">🔊 Playing</span>
+              </div>
+              <div class="demo-card-thumb" style="background: linear-gradient(135deg, #1e1b4b, #0f172a);">
+                <span>▶ Video Stream</span>
+              </div>
+              <div class="demo-card-title">YouTube: Next.js 15 Full Tutorial</div>
+              <div class="demo-card-url">youtube.com/watch?v=123</div>
+            </div>
+
+            <div class="demo-card audible" data-title="Spotify — Lo-Fi Chill Beats for Coding" data-url="open.spotify.com/playlist">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">🎧</span>
+                <span class="demo-card-badge badge-audible">🔊 Playing</span>
+              </div>
+              <div class="demo-card-thumb" style="background: linear-gradient(135deg, #064e3b, #022c22);">
+                <span>🎵 Audio Track</span>
+              </div>
+              <div class="demo-card-title">Spotify — Lo-Fi Chill Beats</div>
+              <div class="demo-card-url">open.spotify.com</div>
+            </div>
+
+            <div class="demo-card duplicate" data-title="Reddit — r/programming discussion" data-url="reddit.com/r/programming">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">🤖</span>
+                <span class="demo-card-badge badge-dupe">⚠️ Duplicate</span>
+              </div>
+              <div class="demo-card-thumb"><span>Reddit Post</span></div>
+              <div class="demo-card-title">Reddit — r/programming</div>
+              <div class="demo-card-url">reddit.com/r/programming</div>
+            </div>
+
+            <div class="demo-card duplicate" data-title="Reddit — r/programming discussion" data-url="reddit.com/r/programming">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">🤖</span>
+                <span class="demo-card-badge badge-dupe">⚠️ Duplicate</span>
+              </div>
+              <div class="demo-card-thumb"><span>Reddit Post</span></div>
+              <div class="demo-card-title">Reddit — r/programming</div>
+              <div class="demo-card-url">reddit.com/r/programming</div>
+            </div>
+
+            <div class="demo-card" data-title="Figma — Mission Control Design System" data-url="figma.com/file/123">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">🎨</span>
+                <span class="demo-card-badge" style="background: rgba(139,92,246,0.15); color: #c084fc;">Design</span>
+              </div>
+              <div class="demo-card-thumb" style="background: linear-gradient(135deg, #2e1065, #0f172a);">
+                <span>🎨 Figma Canvas</span>
+              </div>
+              <div class="demo-card-title">Figma — Mission Control</div>
+              <div class="demo-card-url">figma.com</div>
+            </div>
+
+            <div class="demo-card" data-title="GitHub — better-tab-mission-control PR #14" data-url="github.com/bgramming">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">🐙</span>
+                <span class="demo-card-badge" style="background: rgba(56,189,248,0.15); color: #38bdf8;">Dev</span>
+              </div>
+              <div class="demo-card-thumb"><span>Pull Request #14</span></div>
+              <div class="demo-card-title">GitHub — Pull Request #14</div>
+              <div class="demo-card-url">github.com/bgramming</div>
+            </div>
+
+            <div class="demo-card" data-title="Stripe Dashboard — Live Revenue" data-url="dashboard.stripe.com">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">💳</span>
+                <span class="demo-card-badge" style="background: rgba(16,185,129,0.15); color: #34d399;">Finance</span>
+              </div>
+              <div class="demo-card-thumb"><span>Stripe Metrics</span></div>
+              <div class="demo-card-title">Stripe Dashboard</div>
+              <div class="demo-card-url">dashboard.stripe.com</div>
+            </div>
+
+            <div class="demo-card" data-title="Gmail — Bernardo Miranda Inbox (12)" data-url="mail.google.com">
+              <div class="demo-card-top">
+                <span style="font-size: 16px;">✉️</span>
+                <span class="demo-card-badge" style="background: rgba(239,68,68,0.15); color: #f87171;">Mail</span>
+              </div>
+              <div class="demo-card-thumb"><span>Inbox (12)</span></div>
+              <div class="demo-card-title">Gmail — Inbox (12)</div>
+              <div class="demo-card-url">mail.google.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Showcase Banner Section -->
+    <section class="section" style="padding-top: 20px;">
+      <div class="container">
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 20px 60px rgba(0,0,0,0.6);">
+          <img src="assets/hero-mockup.jpg" alt="Better Tab 3D Perspective Interface Mockup" style="width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Bento Grid Section -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ENGINEERED FOR POWER USERS</span>
+          <h2 class="section-title">Everything You Need to Master Your Tabs</h2>
+          <p class="section-sub">Built with extreme performance and zero telemetry. Designed to make your computer run faster, cooler, and quieter.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card bento-col-2">
+            <div class="bento-icon icon-cyan">⚡</div>
+            <h3 class="bento-title">Instant Spatial Overview & Zero-Latency Search</h3>
+            <p class="bento-desc">
+              Hit <code>Ctrl+T</code> or <code>Alt+W</code>. Your entire browsing universe appears as an elegant spatial grid. Type anywhere on the page to instantly filter through titles, URLs, window names, or tab groups in under 50ms.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon icon-emerald">🌿</div>
+            <h3 class="bento-title">Auto-Suspend RAM Saver</h3>
+            <p class="bento-desc">
+              Reclaim up to 80% of your browser's RAM. Inactive background tabs are safely hibernated while preserving scroll positions and form inputs.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon icon-amber">🧹</div>
+            <h3 class="bento-title">1-Click Duplicate Cleaner</h3>
+            <p class="bento-desc">
+              Accidentally opened the same Reddit thread or GitHub repo 4 times across different windows? Better Tab detects duplicate tabs automatically and lets you clean them with one tap.
+            </p>
+          </div>
+
+          <div class="bento-card bento-col-2">
+            <div class="bento-icon icon-purple">🔊</div>
+            <h3 class="bento-title">Audio Telemetry & Noise Hunter</h3>
+            <p class="bento-desc">
+              Stop clicking through 50 tabs trying to find where that mystery video or music is playing. Live equalizer pills highlight noisy tabs instantly, complete with a quick 1-click mute button.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon icon-cyan">⌨️</div>
+            <h3 class="bento-title">Omnibox Fast Switch</h3>
+            <p class="bento-desc">
+              Type <code>t &lt;query&gt;</code> directly in your browser's top address bar to search through open tabs and hit enter to switch immediately.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon icon-emerald">☁️</div>
+            <h3 class="bento-title">Encrypted Cross-Device Stashes</h3>
+            <p class="bento-desc">
+              Save whole window sessions with custom tags. Sync your research and work stashes between your desktop and laptop via encrypted native browser storage.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon icon-purple">🛡️</div>
+            <h3 class="bento-title">100% Client-Side Privacy</h3>
+            <p class="bento-desc">
+              Your browsing history and tabs belong to you. Better Tab runs entirely on your local machine with zero analytics tracking and zero server telemetry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Press Banner Section -->
+    <section class="section" style="padding: 40px 0;">
+      <div class="container">
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 20px 60px rgba(0,0,0,0.6);">
+          <img src="assets/press-banner.jpg" alt="Better Tab Press Showcase Banner" style="width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">TRANSPARENT PRICING</span>
+          <h2 class="section-title">Invest in Browser Peace of Mind</h2>
+          <p class="section-sub">Free forever for essential mission control. Unlock lifetime power tools for less than the cost of a lunch.</p>
+        </div>
+
+        <div class="pricing-switcher">
+          <button id="switch-lifetime" class="pricing-switch-btn active">⭐ Lifetime Special ($12)</button>
+          <button id="switch-annual" class="pricing-switch-btn">Annual ($19.99/yr)</button>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Free Tier -->
+          <div class="pricing-card">
+            <div class="plan-name">Community Free</div>
+            <div class="plan-price">$0</div>
+            <div class="plan-billing">Free forever • No credit card needed</div>
+            <ul class="plan-features">
+              <li>Instant Spatial Visual Grid</li>
+              <li>Spatial Keyword Search</li>
+              <li>Up to 5 Top Sites / Favorites</li>
+              <li>Keyboard Shortcuts (<code>Ctrl+T</code>, <code>Alt+W</code>)</li>
+              <li>Recently Closed Tray</li>
+              <li>Zero Tracking & No Ads</li>
+            </ul>
+            <a href="https://github.com/bgramming/better-tab-mission-control" target="_blank" class="btn btn-secondary">
+              Install Free ⚡
+            </a>
+          </div>
+
+          <!-- Pro Tier -->
+          <div class="pricing-card featured">
+            <span id="pro-plan-badge" class="pricing-badge">🔥 LAUNCH SPECIAL — BEST VALUE</span>
+            <div class="plan-name" style="color: #34d399;">Mission Control Pro</div>
+            <div id="pro-plan-price" class="plan-price" style="color: #f8fafc;">$12.00</div>
+            <div id="pro-plan-billing" class="plan-billing">One-time payment • Lifetime access to all future updates</div>
+            <ul class="plan-features">
+              <li><strong>Everything in Free, plus:</strong></li>
+              <li>Auto-Suspend RAM Saver (Save up to 80% RAM)</li>
+              <li>1-Click Duplicate Tab Cleaner</li>
+              <li>Live Audio Telemetry & Quick Mute</li>
+              <li>Unlimited Top Sites (10+ slots)</li>
+              <li>Bulk Move, Stash, and Window Grouping</li>
+              <li>Cross-Device Cloud Stashes & Sync</li>
+              <li>Priority Feature Updates & Support</li>
+            </ul>
+            <a href="https://extensionpay.com" target="_blank" class="btn btn-emerald" style="font-size: 15px; padding: 12px 24px;">
+              Get Lifetime Pro ($12) ⭐
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title">Got Questions? We Have Answers.</h2>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>How does Better Tab save up to 80% of my browser's RAM?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Better Tab uses Chromium's native tab hibernation API (<code>chrome.tabs.discard</code>) to unload inactive background web pages from your computer's memory while keeping the tab, favicon, and URL intact. When you click back on the tab, it wakes up instantly right where you left off.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Does Better Tab track my browsing history or sell data?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <strong>Never.</strong> Better Tab is 100% open-source and executes completely on your local machine. We do not operate tracking servers, we do not inject advertisements, and we do not collect personal browsing data.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How is this different from extensions like OneTab?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              OneTab forcibly closes all your tabs and dumps them into a plain text list. Better Tab is a true macOS Mission Control for your browser: you get a visual spatial grid of your open windows with live thumbnails, audio indicators, and search, with zero lost tab context.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Does the Lifetime Pro license work on multiple devices?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes! Your Pro license key works across all your personal devices (Mac, Windows, Linux) on any Chromium browser signed into your account.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logo-icon.svg" alt="Better Tab Icon" style="width: 28px; height: 28px;">
+          <span style="font-weight: 700; color: #f8fafc; font-family: var(--font-display);">Better Tab — Mission Control</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="../docs/BRAND_IDENTITY.md">Brand Identity</a></li>
+          <li><a href="../docs/PRESS_KIT.md">Press Kit</a></li>
+          <li><a href="../docs/PRIVACY_POLICY.md">Privacy Policy</a></li>
+          <li><a href="https://github.com/bgramming/better-tab-mission-control" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <p>© 2026 Better Tab — Mission Control. Built by Bernardo Miranda for high-velocity browsing.</p>
+        <p style="color: #64748b;">Manifest V3 Production Ready • v3.0.4</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="landing.js"></script>
+</body>
+</html>
